@@ -1,5 +1,9 @@
 # What is up with overengineering?
 
+```
+This post is a WIP, it's not entirely done yet so information may seem displaced.
+```
+
 Why is it so easy to get carried away when building software? Sometimes when I'm writing, I enter on a trance that I can
 only get out when I notice something weird going on in my code, mostly I can get out of it when I ask myself "is this an
 overkill?".
@@ -116,10 +120,3 @@ Don't be afraid and known your enemy! Don't let unknown unknowns be a problem!
 
 [^4]: [A Tiger costed around 250k Reichsmark at that time, but it's talked everywhere that one Reichsmark could be converted to about 2.50 USD](https://tanks-encyclopedia.com/ww2/germany/panzer-vi_tiger.php#:~:text=Each%20Tiger%20was%20calculated%20to%20cost%20RM250%2C800%20(Reichsmarks)%20to%20build%20compared%20to%20just%20RM117%2C100%20for%20a%20Panther%20and%20RM103%2C462%20for%20a%20Panzer%20IV.)
 
-References:
-
-https://hbr.org/2006/02/defeating-feature-fatigue
-https://ntrs.nasa.gov/api/citations/19930009672/downloads/19930009672.pdf
-https://openlibrary.org/books/OL14918996M/Britain_and_atomic_energy_1939-1945
-https://www.infoworld.com/article/3589545/is-your-software-architecture-as-clean-as-your-code.html
-https://www.reddit.com/r/webdev/comments/1cuumbw/opinion_about_overengineering/
