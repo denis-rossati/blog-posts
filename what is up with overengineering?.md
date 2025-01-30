@@ -24,7 +24,7 @@ Not to mention that its manufacture was a labor-intensive process[^1] due to its
 
 ---
 
-## Think about some title later
+## Know your enemy
 
 I'll try not to overengineer this post, while doing the first draft I thought about multiple reasons which can lead a codebase or a feature to get unnecessarily complex. But I'll try to stick with only two that I find interesting. I might write about other reasons later.
 
