@@ -125,7 +125,12 @@ If you want to go deeper, I used these to catch some inspiration. I'd give them 
 
 This was my first blog post ever in software engineering. I covered little topics because I rewrote this, no kidding, more than 20 times and each one was a little shorter than the previous one. I'm still not very proud of the final result, but always remember that this is a living document, I'll always try to improve it a little.
 
-If you're seeing this at the time I'm writing these words (2025-01-30), maybe you're seeing a very raw blog. This is because I purposely made this website veeeery underengineering (if this word exists) because I want to leave this door open to talk more about this subject and include my experience in creating this blog.
+If you're seeing this at the time I'm writing these words (2025-01-30), maybe you're seeing a very raw blog:
+
+![blog in it's first days](https://storage.googleapis.com/blog-the-wall/public/2025-01-30_16-19.png)
+
+
+This is because I purposely made this website veeeery underengineering (if this word exists) because I want to leave this door open to talk more about this subject and include my experience in creating this blog.
 
 There's a lot to come that I want to share and write about. Not only, but mostly about software building.
 
