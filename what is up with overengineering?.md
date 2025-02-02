@@ -16,7 +16,7 @@ German Second World War weapons, like the famous Tiger I tank or Panther tank, h
 
 I think I agree. While the Tiger line was one of the pinnacles of military engineering and a huge beast at the time — it is said that just the Maybach engine sound caused fear among Allied soldiers — its downfall was traveling on unstable ground like mud, sand or snow. And repairing it during battle was extremely hard.
 
-Not to mention that its manufacture was a labor-intensive process[^1] due to its heavy armor and expensive parts. Any errors (which were not uncommon) cost not only a million dollars[^3] but also lives. Although it's said that it was mechanically reliable — when it wasn't in need of repair.
+Not to mention that its manufacture was a labor-intensive process[^1] due to its heavy armor and expensive parts. Any errors (which were not uncommon) cost not only a million dollars[^2] but also lives. Although it's said that it was mechanically reliable — when it wasn't in need of repair.
 
 ---
 
@@ -34,9 +34,9 @@ The point I'd like to stress here is: bunkers in general are not overengineered;
 
 I'm not a WWII specialist, only a curious person, and I'll try to back my claims with sources... Let's see what features the Tiger I had, but weren't much of a help . I'll try to be clear:
 
-- The Feifel system was intended to be used in polluted and arid environments such as North Africa[^4];
+- The Feifel system was intended to be used in polluted and arid environments such as North Africa[^3];
 - The wheels were great; they provided good stability and driving by using interleaved road wheels ([here's a good explanation for anyone wondering "what the heck is this?"](https://sturgeonshouse.ipbhost.com/topic/1134-what-the-hell-is-the-point-of-interleaved-road-wheels/));
-- Initially implemented with the TZF 9b, the Tiger had incredible sight, granting VERY PRECISE aim for its time[^5];
+- Initially implemented with the TZF 9b, the Tiger had incredible sight, granting VERY PRECISE aim for its time[^4];
 
 Pretty cool, heh?
 
@@ -81,7 +81,7 @@ I'm not extremely experienced, but I've observed both beginners and experienced 
 
 ---
 
-There's a quick story to wrap up this post that I want to share. At work, I was once told (shout out to Fryuni, check out his [work](https://github.com/fryuni) and [blog](https://fryuni.dev/)) about what kind of data structure IDEs generally use under the hood for text editing. The name itself was a matter of interest to me: ropes[^4]. I'm not going into the algorithm details in this post. My point is: just before he told me, this subject was an unknown unknown; after he told me what the heck that was, it became a known unknown. It was then just a matter of will to turn it into a known known.
+There's a quick story to wrap up this post that I want to share. At work, I was once told (shout out to Fryuni, check out his [work](https://github.com/fryuni) and [blog](https://fryuni.dev/)) about what kind of data structure IDEs generally use under the hood for text editing. The name itself was a matter of interest to me: ropes[^5]. I'm not going into the algorithm details in this post. My point is: just before he told me, this subject was an unknown unknown; after he told me what the heck that was, it became a known unknown. It was then just a matter of will to turn it into a known known.
 
 I went on an adventure implementing my own rope data structure. I struggled a little, but it was a good pain, just like a workout — you know it's good for your health, you need to build that resilience when facing new problems.
 
@@ -135,10 +135,8 @@ Feel free to leave any comments in the repository where I store all these posts 
 
 [^2]: [https://tanks-encyclopedia.com/ww2/germany/panzer-vi_tiger.php](https://tanks-encyclopedia.com/ww2/germany/panzer-vi_tiger.php#:~:text=Each%20Tiger%20was%20calculated%20to%20cost%20RM250%2C800%20(Reichsmarks)%20to%20build%20compared%20to%20just%20RM117%2C100%20for%20a%20Panther%20and%20RM103%2C462%20for%20a%20Panzer%20IV.)
 
-[^3]: [https://en.wikipedia.org/wiki/Doln%C3%AD_V%C4%9Bstonice](https://en.wikipedia.org/wiki/Doln%C3%AD_V%C4%9Bstonice#:~:text=a%20small%20settlement%20of%20mammoth%20hunters%20consisting%20of%20huts%20built%20with%20rocks%20and%20mammoth%20bones%20was%20founded%20on%20the%20site%20of%20what%20is%20now%20Doln%C3%AD%20V%C4%9Bstonice)
+[^3]: [https://tiger1.info/EN/Feifel-air-precleaners.html](https://tiger1.info/EN/Feifel-air-precleaners.html)
 
-[^4]: [https://tiger1.info/EN/Feifel-air-precleaners.html](https://tiger1.info/EN/Feifel-air-precleaners.html)
+[^4]: [https://tigertank181.com/08_tzf9b_gunsights.htm](https://tigertank181.com/08_tzf9b_gunsights.html)
 
-[^5]: [https://tigertank181.com/08_tzf9b_gunsights.htm](https://tigertank181.com/08_tzf9b_gunsights.html)
-
-
+[^5]: [https://en.wikipedia.org/wiki/Rope_(data_structure)](https://en.wikipedia.org/wiki/Rope_(data_structure))
