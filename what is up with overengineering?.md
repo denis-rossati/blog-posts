@@ -137,6 +137,6 @@ Feel free to leave any comments in the repository where I store all these posts 
 
 [^3]: [https://tiger1.info/EN/Feifel-air-precleaners.html](https://tiger1.info/EN/Feifel-air-precleaners.html)
 
-[^4]: [https://tigertank181.com/08_tzf9b_gunsights.htm](https://tigertank181.com/08_tzf9b_gunsights.html)
+[^4]: [https://tigertank181.com/08_tzf9b_gunsights.htm](https://tigertank181.com/08_tzf9b_gunsights.htm)
 
 [^5]: [https://en.wikipedia.org/wiki/Rope_(data_structure)](https://en.wikipedia.org/wiki/Rope_(data_structure))
