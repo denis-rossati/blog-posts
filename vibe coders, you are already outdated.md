@@ -56,7 +56,7 @@ As expected, vibe coding is reactive. You just feed your code into AI without an
 
 ### In XGH anything goes.
 
-![All wrong](https://storage.googleapis.com/blog-the-wall/public/all-wrong.png)
+![All wrong](https://storage.googleapis.com/blog-the-wall/public/all-wrong.jpg)
 
 Of course, everything goes ~wrong~
 
