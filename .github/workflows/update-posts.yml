@@ -1,0 +1,19 @@
+name: update-posts.yml
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    update-posts:
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v4
+
+            -   name: Run script
+                with:
+                    GCS_BUCKET: ${{ secrets.GCS_BUCKET }}
+                    API_KEY: ${{ secrets.API_KEY }}
+                    PATCH_ENDPOINT: ${{ secrets.PATCH_ENDPOINT }}
+
+                run: ./github/workflows/updater.sh "$GCS_BUCKET" "$API_KEY" "$PATCH_ENDPOINT"
