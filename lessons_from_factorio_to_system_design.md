@@ -1,4 +1,4 @@
-# Lessons from factorio to software development
+# Lessons from factorio to software development.
 
 This is my review regarding factorio.
 

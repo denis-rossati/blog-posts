@@ -1,4 +1,4 @@
-# Quick use case for work-stealing algorithm
+# Quick use case for work-stealing algorithm.
 
 I read about an interesting algorithm a month ago when we faced a little problem involving multiple queues reading from the same source, and trying to send unavailable data. I'll get there, first I'll explain what happened.
 

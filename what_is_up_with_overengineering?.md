@@ -1,4 +1,4 @@
-# What is up with overengineering?
+# What is up with overengineering?.
 
 Why is it so easy to get carried away when building software? I think it's easy to shoot in all directions when you have no clue which cases you should worry about, or when, like me, sometimes you don't notice the codebase growing and growing like a plague.
 
