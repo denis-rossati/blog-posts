@@ -33,7 +33,7 @@ get_title_from_filename() {
 }
 
 encode_url() {
-    echo "$1" | jq -sRr @uri
+    echo -n "$1" | jq -sRr @uri
 }
 
 git diff HEAD~ --name-status | while read -r status file1 file2; do
