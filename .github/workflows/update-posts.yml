@@ -29,9 +29,8 @@ jobs:
                 run: chmod +x .github/workflows/patcher.sh
 
             -   name: Run script
-                with:
+                env:
                     GCS_BUCKET: ${{ secrets.GCS_BUCKET }}
                     API_KEY: ${{ secrets.API_KEY }}
                     PATCH_ENDPOINT: ${{ secrets.PATCH_ENDPOINT }}
-
                 run: ./.github/workflows/patcher.sh "$GCS_BUCKET" "$API_KEY" "$PATCH_ENDPOINT"
