@@ -99,6 +99,7 @@ git diff HEAD~ --name-status | while read -r status file1 file2; do
 				gsutil cp "$file2" "gs://$GCS_BUCKET/$file2"
 
 				encoded_url=$(encode_url "$file2")
+				echo encoded_url
 				content_url="https://storage.googleapis.com/$GCS_BUCKET/$encoded_url"
 
 				json=$(jq -n \
