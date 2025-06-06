@@ -1,4 +1,4 @@
-# Vibe coders, you are already outdated.
+# Vibe coders, you are already outdated
 
 "_What if we added a dumbass that is constantly wrong to every product?_" — tech bro, probably.
 
