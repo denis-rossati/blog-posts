@@ -58,7 +58,8 @@ git diff HEAD~ --name-status | while read -r status file1 file2; do
 						'\{operation: "ADD", payload: { title: $title, id: $id, contentUrl: $content_url } }'
 					)
 
-					curl -X POST "$PATCH_ENDPOINT?apiKey=$API_KEY" \ -H "Content-Type: application/json" \
+					curl -X POST "$PATCH_ENDPOINT?apiKey=$API_KEY" \
+					-H "Content-Type: application/json" \
 					-d "$json"
 		  		fi
             fi
@@ -100,7 +101,6 @@ git diff HEAD~ --name-status | while read -r status file1 file2; do
 
 				encoded_url=$(encode_url "$file2")
 				content_url="https://storage.googleapis.com/$GCS_BUCKET/$encoded_url"
-				echo "$content_url"
 
 				json=$(jq -n \
 					--arg previous_id "$previous_id" \
@@ -110,7 +110,8 @@ git diff HEAD~ --name-status | while read -r status file1 file2; do
 					'{operation: "UPDATE", payload: { previousId: $previous_id, newId: $new_id, title: $title, contentUrl: $content_url } }'
 				)
 
-				curl -X POST "$PATCH_ENDPOINT?apiKey=$API_KEY" \ -H "Content-Type: application/json" \
+				curl -X POST "$PATCH_ENDPOINT?apiKey=$API_KEY" \
+					-H "Content-Type: application/json" \
 					-d "$json"
 
 				gsutil rm "gs://$GCS_BUCKET/$file1"
