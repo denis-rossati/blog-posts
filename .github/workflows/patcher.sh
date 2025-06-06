@@ -1,8 +1,9 @@
-#!/bin/bash set -e
+#!/bin/bash
+set -e
 
 GCS_BUCKET="$1"
 API_KEY="$2"
-PATCH_ENDPOINT="https://foo.bar"
+PATCH_ENDPOINT="$3"
 
 if ! command -v gsutil &>/dev/null; then
  	echo "No gsutil command found"
