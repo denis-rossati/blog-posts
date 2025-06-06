@@ -36,7 +36,7 @@ This is my favorite so far. Is something wrong? Just ask AI to rewrite that crap
 
 Also, I can only picture this:
 
-![I'm stupid faster](https://cdn.denis.my/assets/stupid-faster.png)
+![I'm stupid faster](https://cdn.denis.my/assets/stupidddd-faster.png)
 
 ### You’ll always need to do more and more XGH.
 
