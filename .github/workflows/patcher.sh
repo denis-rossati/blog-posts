@@ -60,7 +60,7 @@ git diff HEAD~ --name-status | while read -r status file1 file2; do
 
 					curl -X POST "$PATCH_ENDPOINT?apiKey=$API_KEY" \
 					-H "Content-Type: application/json" \
-					-d "$json"
+					-d "$json" -m 10
 		  		fi
             fi
             ;;
@@ -86,7 +86,7 @@ git diff HEAD~ --name-status | while read -r status file1 file2; do
 
 				curl -X DELETE "$PATCH_ENDPOINT?apiKey=$API_KEY" \
 					-H "Content-Type: application/json" \
-					-d "$json"
+					-d "$json" -m 10
 			fi
             ;;
         R*)
@@ -112,7 +112,7 @@ git diff HEAD~ --name-status | while read -r status file1 file2; do
 
 				curl -X POST "$PATCH_ENDPOINT?apiKey=$API_KEY" \
 					-H "Content-Type: application/json" \
-					-d "$json"
+					-d "$json" -m 10
 
 				gsutil rm "gs://$GCS_BUCKET/$file1"
             fi
