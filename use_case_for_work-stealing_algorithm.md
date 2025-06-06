@@ -57,12 +57,12 @@ It's very simple, but I'll illustrate for those who are more visual.
 
 Each tab have its own queue and beacons.
 
-![Each tab has its own queue](https://storage.googleapis.com/blog-the-wall/public/work-stealing/full-queues.png)
+![Each tab has its own queue](https://cdn.denis.my/assets/work-stealing/full-queues.png)
 
 If a tab empties its queue, it randomly chooses other queue and take beacons from there.
 
 
-![Stealing other queues](https://storage.googleapis.com/blog-the-wall/public/work-stealing/empty-queue.png)
+![Stealing other queues](https://cdn.denis.my/assets/work-stealing/empty-queue.png)
 
 The amount of stolen beacons may vary, but in this example I stole half of the other queue.
 

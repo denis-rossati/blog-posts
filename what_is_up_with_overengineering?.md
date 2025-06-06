@@ -119,7 +119,7 @@ This was my first blog post ever about software engineering, I'm much more used 
 
 If you're seeing this at the time I'm writing these words (2025-01-30), maybe you're seeing a very raw blog:
 
-![blog in its first days](https://storage.googleapis.com/blog-the-wall/public/2025-01-30_16-19.png)
+![blog in its first days](https://cdn.denis.my/assets/2025-01-30_16-19.png)
 
 This is because I purposely made this website veeery underengineered (if this word exists) because I want to leave this door open to talk more about this subject and include my experience in creating this blog.
 
