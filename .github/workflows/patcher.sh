@@ -24,6 +24,14 @@ generate_uuid_from_filename() {
 	echo "${hash:0:8}-${hash:8:4}-${hash:12:4}-${hash:16:4}-${hash:20:12}"
 }
 
+get_title_from_filename() {
+	filename="$1"
+
+	title=$(basename "$filename" .md | tr '_' ' ' | sed 's/^./\U&/')
+
+	echo "$title"
+}
+
 git diff HEAD~ --name-status | while read -r status file1 file2; do
     case "$status" in
         A)
@@ -31,7 +39,7 @@ git diff HEAD~ --name-status | while read -r status file1 file2; do
 
             if [[ "$file1" == *.md ]]; then
 		  		if [[ -f "$file1" ]]; then
-					title=$(basename "$file1" .md)
+					title=$(get_title_from_filename "$file1")
 					id=$(generate_uuid_from_filename "$file1")
 
 					gsutil cp "$file1" "gs://$GCS_BUCKET/$file1"
@@ -80,6 +88,8 @@ git diff HEAD~ --name-status | while read -r status file1 file2; do
             if [[ "$file1" == *.md && "$file2" == *.md ]]; then
             	previous_id=$(generate_uuid_from_filename "$file1")
             	new_id=$(generate_uuid_from_filename "$file2")
+				title=$(get_title_from_filename "$file2")
+
 
 				gsutil cp "$file2" "gs://$GCS_BUCKET/$file2"
 
@@ -88,7 +98,7 @@ git diff HEAD~ --name-status | while read -r status file1 file2; do
 				json=$(jq -n \
 					--arg previous_id "$previous_id" \
 					--arg new_id "$new_id" \
-					--arg title "$(basename "$file2" .md)" \
+					--arg title "$title" \
 					--arg content_url "$content_url" \
 					'{operation: "UPDATE", payload: { previousId: $previous_id, newId: $new_id, title: $title, contentUrl: $content_url } }'
 				)
