@@ -32,6 +32,10 @@ get_title_from_filename() {
 	echo "$title"
 }
 
+encode_url() {
+    echo "$1" | jq -sRr @uri
+}
+
 git diff HEAD~ --name-status | while read -r status file1 file2; do
     case "$status" in
         A)
@@ -44,7 +48,8 @@ git diff HEAD~ --name-status | while read -r status file1 file2; do
 
 					gsutil cp "$file1" "gs://$GCS_BUCKET/$file1"
 
-					content_url="https://storage.googleapis.com/$GCS_BUCKET/$file1"
+					encoded_url=$(encode_url "$file1")
+					content_url="https://storage.googleapis.com/$GCS_BUCKET/$encoded_url"
 
 					json=$(jq -n \
 						--arg title "$title" \
@@ -93,7 +98,8 @@ git diff HEAD~ --name-status | while read -r status file1 file2; do
 
 				gsutil cp "$file2" "gs://$GCS_BUCKET/$file2"
 
-				content_url="https://storage.googleapis.com/$GCS_BUCKET/$file2"
+				encoded_url=$(encode_url "$file2")
+				content_url="https://storage.googleapis.com/$GCS_BUCKET/$encoded_url"
 
 				json=$(jq -n \
 					--arg previous_id "$previous_id" \
