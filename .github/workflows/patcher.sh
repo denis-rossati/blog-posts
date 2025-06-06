@@ -10,6 +10,11 @@ if ! command -v gsutil &>/dev/null; then
  	exit 1
 fi
 
+if ! command -v jq &>/dev/null; then
+	echo "No jq command found"
+	exit 1
+fi
+
 # Hacky but it does the job :)
 generate_uuid_from_filename() {
 	filename="$1"
