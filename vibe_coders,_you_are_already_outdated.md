@@ -36,7 +36,7 @@ This is my favorite so far. Is something wrong? Just ask AI to rewrite that crap
 
 Also, I can only picture this:
 
-![I'm stupid faster](https://storage.googleapis.com/blog-the-wall/public/stupid-faster.png)
+![I'm stupid faster](https://cdn.denis.my/assets/stupid-faster.png)
 
 ### You’ll always need to do more and more XGH.
 
@@ -56,7 +56,7 @@ As expected, vibe coding is reactive. You just feed your code into AI without an
 
 ### In XGH anything goes.
 
-![All wrong](https://storage.googleapis.com/blog-the-wall/public/all-wrong.jpg)
+![All wrong](https://cdn.denis.my/assets/all-wrong.jpg)
 
 Of course, everything goes ~wrong~
 

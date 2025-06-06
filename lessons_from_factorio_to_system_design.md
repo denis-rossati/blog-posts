@@ -6,11 +6,11 @@ For those who aren't familiar, Factorio is an automation game. You are an engine
 
 You start small with coal-fueled machinery, smelting some iron in a stone oven. Primitive stuff.
 
-![Small iron plate setup](https://storage.googleapis.com/blog-the-wall/public/small-base-setup.png)
+![Small iron plate setup](https://cdn.denis.my/assets/small-base-setup.png)
 
 Soon enough you'll end up in the 28th industrial revolution:
 
-![Complex setup](https://storage.googleapis.com/blog-the-wall/public/ant-nest-base.jpeg)
+![Complex setup](https://cdn.denis.my/assets/ant-nest-base.jpeg)
 
 <sub>_This base doesn't even make sense. I just wanted to show that it can become real complex real quick._</sub>
 
@@ -46,7 +46,7 @@ This game takes bugs to another level. As you expand your base, you'll start to 
 
 You'll have to be aware that they can attack you from anywhere. You need to assess where your base is vulnerable and remediate that by building defenses or just exterminating them nests.
 
-![Slaying bugs!](https://storage.googleapis.com/blog-the-wall/public/bug-slaying.gif)
+![Slaying bugs!](https://cdn.denis.my/assets/bug-slaying.gif)
 
 This reminds me of a complex project trying to achieve everything at the same time. A huge mess. Excessive complexity hides many threats that can easily pass unnoticed, just like a huge factory with a lot of exposed machinery.
 
@@ -60,7 +60,7 @@ This is my favorite part of the game.
 
 When starting a base, new players and veterans alike design their factories in an ad-hoc style, just like a POC. You need iron to create some red circuits? Just drag a belt there, and done. But as you get more complex recipes, the base becomes more and more unmaintainable:
 
-![Confusing and messy factory](https://storage.googleapis.com/blog-the-wall/public/spaghetti-base-factorio.png)
+![Confusing and messy factory](https://cdn.denis.my/assets/spaghetti-base-factorio.png)
 
 <sub>I had to take this picture from the internet, because I don't create spaghetti factories. Ever!!</sub>
 
@@ -68,7 +68,7 @@ You need a place where you are provided with the main materials, and then you ju
 
 The relation here is obvious: you can't choose an architecture and stick with it forever. You need to adapt your solutions to your scalability needs, sometimes even redoing them from the ground up. For example, a single database instance won't fit a global-scale application. You'll need to adapt your infrastructure with replicas or sharding, common industry practices.
 
-![Main bus producing advanced circuits and creating a copper cable lane](https://storage.googleapis.com/blog-the-wall/public/factorio-main-bus.png)
+![Main bus producing advanced circuits and creating a copper cable lane](https://cdn.denis.my/assets/factorio-main-bus.png)
 
 After a spaghetti factory, players move to a bus pattern. This is good for bases that can no longer afford the complexity of an ad-hoc factory. But even this design can become too complex at scale. Imagine you need copper cables to build circuits, a very early game item, so you keep the copper cables only at the side of your main bus, without sending them to the main belts. But now you unlocked a big electric pole, red circuits, arithmetic combinators... all of them require copper cables to be built. Do you refactor your main bus to include the copper cable? Depending on how you implemented your base, this can become a problem. What if your copper production isn't able to feed all the side production chains? You have a scale problem again.
 
@@ -82,11 +82,11 @@ At some point, your main bus will get very messy, building some materials become
 
 Enter city blocks. This is a famous pattern, it isolates production by making a block responsible by one and only one product (with a few exceptions, which should be considered if you know what you are doing)
 
-![Single city block](https://storage.googleapis.com/blog-the-wall/public/single-city-block.png)
+![Single city block](https://cdn.denis.my/assets/single-city-block.png)
 
 Notice how is exactly what single responsibility principle. You can compose a whole factory with these blocks. Here is one set of blocks that I actually built in my current save:
 
-![City blocks](https://storage.googleapis.com/blog-the-wall/public/city-blocks.png)
+![City blocks](https://cdn.denis.my/assets/city-blocks.png)
 
 <sub>You can even picture how I'm slowly transitioning from main bus to city blocks.</sub>
 
