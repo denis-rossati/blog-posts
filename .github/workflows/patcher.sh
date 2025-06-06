@@ -55,7 +55,7 @@ git diff HEAD~ --name-status | while read -r status file1 file2; do
 						--arg title "$title" \
 						--arg id "$id" \
 						--arg content_url "$content_url" \
-						'\{operation: "ADD", payload: { title: $title, id: $id, contentUrl: $content_url } }'
+						'{operation: "ADD", payload: { title: $title, id: $id, contentUrl: $content_url } }'
 					)
 
 					curl -X POST "$PATCH_ENDPOINT?apiKey=$API_KEY" \
