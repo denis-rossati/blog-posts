@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>The Wall</title>
+        <link>https://denis.my</link>
+        <description>A Really Simple Dev Journal.</description>
+        <language>en-us</language>
+        <lastBuildDate>Sun, 08 Jun 2025 17:34:10 GMT</lastBuildDate>
+        <pubDate>Sun, 08 Jun 2025 17:34:10 GMT</pubDate>
+
+        <item>
+            <title>RSS is cool</title>
+            <link>https://denis.my/blog/posts/33aa7da0-3f9a-fa83-aa5e-beecd923d110</link>
+            <description>IMO, creating your own feed is more fun.</description>
+            <author>denis.rossatiramos@gmail.com (Denis Rossati)</author>
+            <pubDate>Sun, 08 Jun 2025 17:34:10 GMT</pubDate>
+            <guid isPermaLink="true">https://denis.my/blog/posts/33aa7da0-3f9a-fa83-aa5e-beecd923d110</guid>
+        </item>
+    </channel>
+</rss>
