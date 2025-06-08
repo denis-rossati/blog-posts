@@ -8,15 +8,92 @@ For those who don't know, I work at [Croct](https://croct.com/), which is a head
 
 [We have an open-source SDK](https://github.com/croct-tech/sdk-js). This SDK needs to send data to our backend so we can track what is happening in our clients' applications. We call these data "beacons".
 
-The SDK uses a queue to perform some optimizations and to manage those beacons. Under the hood, [the queue is just a session storage property](https://github.com/croct-tech/sdk-js/blob/2da50e3fcb810d77bcd2a867c9bb7b0269d1dc41/src/container.ts#L303-L311). You can see how we operate the queue interface [here](https://github.com/croct-tech/sdk-js/blob/2da50e3fcb810d77bcd2a867c9bb7b0269d1dc41/src/channel/queuedChannel.ts).
+The SDK uses a queue to perform some optimizations and to manage those beacons. Under the hood, the queue is just a session storage property:
+
+```ts
+private createBeaconQueue(): MonitoredQueue<string> {
+    return new MonitoredQueue<string>(
+        new CapacityRestrictedQueue(
+            new PersistentQueue(this.getGlobalTabStorage('queue')),
+            this.configuration.beaconQueueSize,
+        ),
+        this.getLogger('BeaconQueue'),
+    );
+}
+```
+
+The queue interface is fairly simple:
+
+```ts
+export interface Queue<T> {
+    getCapacity(): number;
+
+    all(): T[];
+
+    push(value: T): void;
+
+    shift(): T;
+
+    peek(): T | null;
+
+    isEmpty(): boolean;
+
+    length(): number;
+}
+```
+
+Queues are used through channels, which also have a simple contract:
+
+```ts
+export interface Closeable {
+    close(): Promise<void>;
+}
+
+export interface OutputChannel<O> extends Closeable {
+    publish(message: O): Promise<void>;
+}
+```
+
+
+> You can see the implementation details [here](https://github.com/croct-tech/sdk-js/blob/2da50e3fcb810d77bcd2a867c9bb7b0269d1dc41/src/channel/queuedChannel.ts).
 
 ### A pesky "bug"
 
-Sharp readers might already have reckoned, but one tab = one SDK instance, and as you can see [here](https://github.com/croct-tech/sdk-js/blob/2da50e3fcb810d77bcd2a867c9bb7b0269d1dc41/src/container.ts#L336-L339), we use the same session storage field for every SDK instance. So far, this is not a big deal: multiple tabs feed the same session storage queue, which is eventually consumed.
+Sharp readers might already have reckoned, but one tab = one SDK instance:
 
-The problem is that one SDK instance does not know that others might exist. So, if two SDK attempt to consume the queue at the same time, one of them will fail [here](https://github.com/croct-tech/sdk-js/blob/2da50e3fcb810d77bcd2a867c9bb7b0269d1dc41/src/queue/persistentQueue.ts#L47-L49) since the event will already be dequeued.
+```ts
+private getGlobalTabStorage(namespace: string, ...subnamespace: string[]): Storage {
+    return new NamespacedStorage(
+        this.getSessionStorage(),
+        this.resolveStorageNamespace(namespace, ...subnamespace),
+    );
+}
+```
 
-This is not a big deal either because no beacons were being lost, it's just the one of the SDKs complaining that it tried to read an empty queue while others already sent all beacons. The worst that will happen is the client receiving an error in the browser console, and this might bother some people, so we considered trying to fix it as long as it does not require big changes.
+> You can check implementation details [here](https://github.com/croct-tech/sdk-js/blob/2da50e3fcb810d77bcd2a867c9bb7b0269d1dc41/src/container.ts#L336-L339).
+
+As you can see, we use the same session storage field for every SDK instance. So far, this is not a big deal: multiple tabs feed the same session storage queue, which is eventually consumed.
+
+The problem is that one SDK instance does not know that others might exist. So, if two SDK attempt to consume the queue at the same time, one of them will fail since the event will already be dequeued, causing the "The queue is empty.":
+
+```ts
+public shift(): T {
+    const queue = [...this.queue];
+    const value = queue.shift();
+
+    if (value === undefined) {
+        throw new Error('The queue is empty.');
+    }
+
+    this.save(queue);
+
+    return value;
+}
+```
+
+> Again, implementation details are [here](https://github.com/croct-tech/sdk-js/blob/2da50e3fcb810d77bcd2a867c9bb7b0269d1dc41/src/queue/persistentQueue.ts#L47-L49)
+
+This is not a big deal either because no beacons were being lost, it's just the one of the SDKs complaining that it tried to read an empty queue while others already sent all beacons. The worst that would happen is the client receiving an error in the browser console, and this might bother some people, so we considered trying to fix it as long as it does not require big changes.
 
 ### Alternatives
 
@@ -36,12 +113,11 @@ One of my first ideas to elect a leader was to rely on [broadcast channel](https
 
 Maybe everybody should try to become the leader by writing its own tab id to a `tab-leader` property in the session storage. Then, the next time everybody _tries_ shift a beacon from the session storage, they need to check whether they are chosen tab.
 
-This is fine. But how to avoid every SDK from trying to become the leader while the leader is alive? A sort of heartbeat/health check/ping-pong/whatever name you like, is required: every X seconds, the leader writes the current timestamp to a session storage field, every SDK keeps reading that field and if the timestamp is too old, a new election is started, that is, the SDK writes its tab ID in the `tab-leader` field. This also helps when tab leader freezes, since other tabs will also pick-up beacons produced by the freezed tab.
+This is fine. But how to avoid every SDK from trying to become the leader while the leader is alive? A sort of heartbeat/health check/ping-pong/whatever name you like, is required: every X seconds, the leader writes the current timestamp to a session storage field, every SDK keeps reading that field and if the timestamp is too old, a new election is started, that is, the SDK writes its tab ID in the `tab-leader` field. This also helps when tab leader freezes, since other tabs will also pick up beacons produced by the frozen tab.
 
 This could be the needed fix. We won't have "split-brain condition", common in distributed coordination systems, because before trying to send a beacon, it always checks for the tab leader.
 
 But again, this is kind of too much work... elections, leaders, heartbeats... What if everything wasn't so bright-sided? We need thieves!
-
 
 ---
 
@@ -68,7 +144,7 @@ The amount of stolen beacons may vary, but in this example I stole half of the o
 
 When a tab has a non-empty queue, it stops the criminality.
 
-It's worth noticing that if more beacons are produced, duplicated or even out of order, we don't need to worry as our backend knows how to handle those just fine B)
+It's worth noticing that if more beacons are produced, duplicated or even out of order, we don't need to worry as our backend knows how to handle those just fine :)
 
 ---
 
