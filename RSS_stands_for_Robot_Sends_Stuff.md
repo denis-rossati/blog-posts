@@ -135,7 +135,7 @@ This leads us to the second question. The answer can range from "just notify eve
 
 Luckily, you don't need to worry about implementing your own aggregator as there are a lot of open-source alternatives. I use [fresh RSS](https://github.com/FreshRSS/FreshRSS) because it's [REALLY simple to set up](https://github.com/FreshRSS/FreshRSS#manual-install) (from a developer perspective), it's open-source and, mainly, because it is self-hosted.
 
-Of course, this is probably too much for non-tech humans. Don't worry, just throw "RSS [your browser name here] extension" and I'm sure you'll find some plug-and-play alternatives :)
+Of course, this is probably too much for non-tech humans. Don't worry, just throw "RSS [your browser name here] extension" and I'm sure you'll find some plug-and-play alternatives :) I tried the [RSS feed reader](https://chromewebstore.google.com/detail/rss-feed-reader/pnjaodmkngahhkoihejjehlcdlnohgmp) for chrome and it's absolutely intuitive, you are only required to create an account.
 
 ## Why does this even matter?
 
