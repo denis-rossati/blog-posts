@@ -55,6 +55,10 @@ As I was reading the book, I was building some toy projects to put everything to
 
 Another short chapter, this one is about how Go handles concurrency at runtime level. You absolutely don't need to know this, but may be interesting to know how things work under the hood. By the way, Go (and other concurrent systems) use the work-stealing algorithm!! It was a nice surprise to see this algorithm in this book, because I've learned about it a few months ago, by the way, I invite you to read the post I about it right [here](https://denis.my/blog/posts/a9c49d91-2d44-1f7b-7c84-2b867cae097b).
 
+## Missed something, though
+
+The book alone might get you familiar with concurrency concepts, but be mindful that as everything in life, you need practice. The book doesn't provide any exercises or deep provocations, I don't think it's a problem, but if you are getting familiar with Go, it's good to get your hands dirty. I did 3 toy projects along with the reading, I recommend you to try something similar when reading. Those were: a simple server to send messages, a multiple file downloader and a database connection pool.
+
 ## Was it worth the time?
 
 For sure. And I'm keeping it as a cookbook whenever I need feel the need to use complex solutions, like the heartbeat pattern. As I said, it's not a book that everybody should read, since it's not for total beginners, and for experienced developers it may or may not cover unknown topics. Definitely a recommendation for developers that aren't 100% familiar with the Go's concurrency style.
